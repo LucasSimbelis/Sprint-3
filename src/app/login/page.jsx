@@ -7,13 +7,13 @@ import { toast } from "react-hot-toast";
 import { serverLogin } from "@/actions/user";
 
 export default function login(){
-    const [email, setEmail] = useState("")
+    const [number, setNumber] = useState("")
     const [senha, setSenha] = useState("")
     const {push} = useRouter()
 
     function login(e){
         e.preventDefault()
-        if(email == "lucas@email.com" && senha == "123"){
+        if(number == "123" && senha == "321"){
         serverLogin()
         push("/")
         }else{
@@ -27,11 +27,11 @@ export default function login(){
                 <Image src={loginimage} className="h-auto w-auto object-auto"/>
             </aside>
             <main className="flex flex-col justify-center items-center p-4 h-screen w-full">
-                <h2>Fiap Filmes</h2>
+                <h2>Entre com seu código médico</h2>
                 <form onSubmit={login} className="flex flex-col gap-2">
-                    <label htmlFor="email">E-mail</label>
-                    <input type="email" id="email" className="bg-slate-600 p-1 rounded" value={email} onChange={(e)=> setEmail(e.target.value)}/>
-                    <label htmlFor="password">Senha</label>
+                    <label htmlFor="number">Código médico: /123/</label>
+                    <input type="number" id="number" min={0} max={999} className="bg-slate-600 p-1 rounded" value={number} onChange={(e)=> setNumber(e.target.value)}/>
+                    <label htmlFor="password">Senha: /321/</label>
                     <input type="password" id="password" className="bg-slate-600 p-1 rounded" value={senha} onChange={(e)=> setSenha(e.target.value)}/>
                     <button className="bg-pink-600 p-2 rounded mt-2">Entrar</button>
                 </form>
